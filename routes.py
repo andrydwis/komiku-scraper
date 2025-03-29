@@ -28,7 +28,7 @@ async def search(keyword: str):
         id = manga.find("a")["href"].split("/")[-2]
         title = manga.find("h3").text.strip()
         description = manga.find("p").text.strip()
-        image = manga.find("img")["src"]
+        image = manga.find("img")["src"].split("?")[0]
         link = manga.find("a")["href"]
         genre = manga.find("div", class_="tpe1_inf").text.strip().split(" ")[-1]
         genre_id = genre.lower().replace(" ", "-")
@@ -62,7 +62,7 @@ async def get_recent_update(page: int = 1):
         id = manga.find("a")["href"].split("/")[-2]
         title = manga.find("h3").text.strip()
         description = manga.find("p").text.strip()
-        image = manga.find("img")["src"]
+        image = manga.find("img")["src"].split("?")[0]
         link = manga.find("a")["href"]
         genre = manga.find("div", class_="tpe1_inf").text.strip().split(" ")[-1]
         genre_id = genre.lower().replace(" ", "-")
@@ -97,7 +97,7 @@ async def get_popular(page: int = 1):
         id = manga.find("a")["href"].split("/")[-2]
         title = manga.find("h3").text.strip()
         description = manga.find("p").text.strip()
-        image = manga.find("img")["src"]
+        image = manga.find("img")["src"].split("?")[0]
         link = manga.find("a")["href"]
 
         mangas.append(
