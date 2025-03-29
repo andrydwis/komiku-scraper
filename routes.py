@@ -8,6 +8,11 @@ app_url = "https://komiku.id"
 api_url = "https://api.komiku.id"
 
 
+@app.get("/")
+async def root():
+    return {"status": "ok", "docs": "/docs"}
+
+
 @app.get("/manga/search")
 async def search(keyword: str):
     html = httpx.get(
